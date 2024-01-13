@@ -1,0 +1,27 @@
+
+
+// xxx(付けたい名前).code-snippets
+{
+  "freezed": { // prefixと一致させる
+    "prefix": "freezed", // 名前を一致させる
+    "scope": "dart", // dartファイルを指定
+    "body": [ // 表示したいコードを記載
+      "import 'package:freezed_annotation/freezed_annotation.dart';",
+
+      "part 'fileName.freezed.dart';",
+      "part 'fileName.g.dart';",
+      "@freezed",
+      "abstract class $1 with _$1 {",
+      "  const $1._();",
+      "  const factory $1 ({",
+      "    required String data1,",
+      "    required String data2,",
+      "    required String data3,",
+      "  }) = _$1;",
+      "}",
+      "  factory $1.fromJson(Map<String, dynamic> json) => _$$1FromJson(json);"
+    ]
+  }
+}
+
+

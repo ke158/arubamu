@@ -6,6 +6,12 @@ if (localPropertiesFile.exists()) {
     }
 }
 
+def keystoreProperties = new Properties()
+def keystorePropertiesFile = rootProject.file('key.properties')
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
+
 def flutterRoot = localProperties.getProperty('flutter.sdk')
 if (flutterRoot == null) {
     throw new GradleException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
@@ -32,7 +38,28 @@ apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
-    compileSdkVersion flutter.compileSdkVersion
+
+        // flavorDimensions "flavor-type"
+
+    // productFlavors {
+    //     dev {
+    //         dimension "flavor-type"
+    //         applicationId "jp.co.t_ch.dev"
+    //         resValue "string", "app_name", "Arubamu（dev）"
+    //     }
+    //     stg {
+    //         dimension "flavor-type"
+    //         applicationId "jp.co.t_ch.stg"
+    //         resValue "string", "app_name", "Arubamu（stg）"
+    //     }
+    //     prod {
+    //         dimension "flavor-type"
+    //         applicationId "jp.co.t_ch"
+    //         resValue "string", "app_name", "Arubamu"
+    //     }
+    // }
+
+    compileSdkVersion 34
     ndkVersion flutter.ndkVersion
 
     compileOptions {
@@ -53,8 +80,8 @@ android {
         applicationId "com.ke.arubamu"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-build-configuration.
-        minSdkVersion 26
-        targetSdkVersion 31
+        minSdkVersion 24
+        targetSdkVersion 33
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }

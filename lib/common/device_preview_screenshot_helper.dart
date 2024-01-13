@@ -1,4 +1,3 @@
-// ignore_for_file: lines_longer_than_80_chars
 import 'dart:io';
 
 import 'package:arubamu/common/print_log.dart';
